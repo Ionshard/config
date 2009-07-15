@@ -1,0 +1,10 @@
+set nu
+set ai
+syn on
+
+filetype on
+au FileType python
+  \ set ts=4 |
+  \ set sts=4 |
+  \ set et |
+  \ set sw=4

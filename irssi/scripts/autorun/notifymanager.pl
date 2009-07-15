@@ -1,0 +1,1 @@
+/home/kasuko/.irssi/scripts/notifymanager.pl

@@ -24,9 +24,18 @@ zstyle ':mime:*' mailcap ~/.mailcap
 # Example: to make it not background an app
 # zstyle ':mime:.txt:' flags needsterminal
 zsh-mime-setup
-alias -s html=pick-web-browser
 
-# Colors
+#web
+alias -s html=pick-web-browser
+#gfx
+alias -s xcf="gimp-remote"
+alias -s png="mirage"
+alias -s gif="mirage"
+alias -s jpg="mirage"
+# media files
+alias -s pdf="xpdf"
+
+#Colors
 autoload -Uz colors
 autoload -Uz zsh/terminfo
 eval "$(dircolors -b)"
@@ -66,7 +75,7 @@ setopt prompt_subst # allow param expansion, command subst, arith in prompt
 # misc
 unsetopt beep # never beep please
 setopt auto_cd # you can cd by just typing a folder name
-setopt vi # vim mode
+#setopt vi # vim mode
 
 #Aliases
 alias date='date +"~ %I:%M %p on %A, the %eth of %B ~"'
@@ -102,7 +111,7 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     local chroot="[$(cat /etc/debian_chroot)]"
 fi
 export PROMPT='$PR_RED$chroot$PR_GREEN%m$PR_WHITE.$PR_BLUE%n$PR_WHITE $PR_MAGENTA%c\
-$PR_WHITE${vcs_info_msg_0_}: '
+$PR_WHITE${vcs_info_msg_0_}:$PR_NO_COLOUR '
 
 case $TERM in
     xterm*)
@@ -123,8 +132,8 @@ ls()
 cd()
 {
         if builtin cd "$@"; then
-                devtodo ${TODO_OPTIONS}
-                /bin/ls --color=auto
+		devtodo ${TODO_OPTIONS}
+		/bin/ls --color=auto
         fi
 }
 

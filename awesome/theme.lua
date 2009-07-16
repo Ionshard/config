@@ -6,19 +6,19 @@ theme = {}
 
 theme.font          = "sans 8"
 
-theme.bg_normal     = "#222222"
-theme.bg_focus      = "#535d6c"
+theme.bg_normal     = "#ff5500"
+theme.bg_focus      = "#990066"
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#444444"
 
-theme.fg_normal     = "#aaaaaa"
-theme.fg_focus      = "#ffffff"
+theme.fg_normal     = "#576415"
+theme.fg_focus      = "#44ff00"
 theme.fg_urgent     = "#ffffff"
-theme.fg_minimize  = "#ffffff"
+theme.fg_minimize  =  "#ffffff"
 
-theme.border_width  = "1"
+theme.border_width  = "2"
 theme.border_normal = "#000000"
-theme.border_focus  = "#FF6622"
+theme.border_focus  = "#576415"
 --theme.border_focus  = "#535d6c"
 theme.border_marked = "#91231c"
 
@@ -87,7 +87,7 @@ theme.layout_tileleft = "/usr/share/awesome/themes/default/layouts/tileleftw.png
 theme.layout_tile = "/usr/share/awesome/themes/default/layouts/tilew.png"
 theme.layout_tiletop = "/usr/share/awesome/themes/default/layouts/tiletopw.png"
 
-theme.awesome_icon = "/usr/share/awesome/icons/awesome16.png"
+theme.awesome_icon = "/usr/share/awesome/themes/sky/awesome-icon.png"
 
 return theme
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:encoding=utf-8:textwidth=80

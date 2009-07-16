@@ -33,7 +33,7 @@ alias -s png="mirage"
 alias -s gif="mirage"
 alias -s jpg="mirage"
 # media files
-alias -s pdf="xpdf"
+alias -s pdf="epdfview"
 
 #Colors
 autoload -Uz colors

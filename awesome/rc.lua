@@ -17,7 +17,7 @@ beautiful.init(theme_path)
 require("obvious.volume_alsa")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "sakura"
+terminal = "urxvt"
 editor = os.getenv("EDITOR") or "vi"
 editor_cmd = terminal .. " -e " .. editor
 

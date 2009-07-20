@@ -1,35 +1,103 @@
-    URxvt*termName: rxvt
+!------------------------------------------------------------------------------
+! c o l o r -  s e t t i n g s
 
-    ## borderless and no scrollbar
-    URxvt*scrollBar_right: false
-    URxvt*scrollBar: false
-    URxvt*borderLess: false
+*background: #222222
+*foreground: #729fcf
 
-    ## teh transparency stuff
-    URxvt*inheritPixmap: true
-    URxvt*tintColor: lightblue
-    URxvt*shading: 40
+!! Default
+!! 0: black
+!*color0:  #222222
+!*color8:  #222222
+!! 1: red
+!*color1:  #9f6767
+!*color9:  #9f6767
+!! 2: green
+!*color2:  #92ac68
+!*color10: #92ac68
+!! 3: yellow
+!*color3:  #d0d293
+!*color11: #d0d293
+!! 4: blue
+!*color4:  #9aacc3
+!*color12: #9aacc3
+!! 5: magenta
+!*color5:  #bb77a4
+!*color13: #bb77a4
+!! 6: cyan
+!*color6:  #77bbb5
+!*color14: #77bbb5
+!! 7: white
+!*color7:  #777777
+!*color15: #777777
 
-    ## geometry and font
-    URxvt*geometry: 84×24
-    URxvt*font: xft:terminus:pixelsize=12
+! Tango Color Scheme from 
+! http://.freedesktop.org/Tango_Icon_Theme_Guidelines
+! Aluminum 5 + 6 (Blacks)
+*color0:             #555753
+*color8:             #000000
+! Scarlet Red 2 + 3
+*color1:             #cc0000
+*color9:             #a40000
+! Chameleon 1 + 2
+*color2:             #8ae234
+*color10:            #73d216
+! Butter 1 + 2
+*color3:             #fce94f
+*color11:            #edd400
+! Sky Blue 2 + 3
+*color4:             #3465a4
+*color12:            #204a87
+! Plum 2 + 3
+*color5:             #75507b
+*color13:            #5c3566
+! Orange 2 + 3
+*color6:             #f57900
+*color14:            #ce5c00
+! Aluminum 1 + 2 (Whites)
+*color7:             #eeeeec
+*color15:            #d3d7cf
 
-    ## change default colors
-    URxvt*background: #000000
-    URxvt*foreground: #00C2FF
-    URxvt*color0: #000000
-    URxvt*color1: #A80000
-    URxvt*color2: #00A800
-    URxvt*color3: #A85400
-    URxvt*color4: #0000A8
-    URxvt*color5: #A800A8
-    URxvt*color6: #00A8A8
-    URxvt*color7: #A8A8A8
-    URxvt*color8: #545054
-    URxvt*color9: #F85450
-    URxvt*color10: #50FC50
-    URxvt*color11: #F2FC50
-    URxvt*color12: #5054F8
-    URxvt*color13: #F854F8
-    URxvt*color14: #50FCF8
-    URxvt*color15: #F8FCF8 
+
+
+!---------------------------------------------------------------------------
+! URXVT Settings
+
+Rxvt*termName: rxvt
+
+## borderless and no scrollbar
+URxvt*scrollBar_right: false
+URxvt*scrollBar: false
+URxvt*borderLess: false
+
+## teh transparency stuff
+URxvt*transparent: true
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0000/cccc
+
+## geometry and font
+#URxvt*geometry: 84×24
+URxvt*font: xft:terminus:pixelsize=14
+
+URxvt*iconFile: /usr/share/icons/Tango/22x22/apps/Terminal.png
+!------------------------------------------------------------------------------
+! URXVT PERL Scripts and URL Parsing
+URxvt*perl-ext:			default,matcher
+!URxvt*perl-ext:			default,matcher,selection,mark-yank-urls
+!URxvt.keysum.M-u: 		perl:mark-yank-urls:activate_mark_mode
+URxvt*matcher.button:		3
+URxvt*urlLauncher:		firefox &> /dev/null
+
+!!urxvt.matcher.pattern.0: \\b(?:(?:https?|ftp|news|file):\/\/|mailto:)[ab-zA-Z0-9\-\@;\/?:&=%\$_.+!*\x27(),~#]+ [ab-zA-Z0-9\-\@;\/?:&=%\$_+!*\x27()~]
+!URxvt*matcher.pattern.0: \\b(?:(?:https?|ftp):\/\/|mailto:)[\\w\-\@;\/?:&=%\$_.+!*\x27(),~#]+ [\\w\-\@;\/?:&=%\$_+!*\x27()~]
+URxvt*matcher.rend.0: 		Uline Bold fg5 bg6 
+!URxvt*matcher.launcher.0:	firefox $0 &> /dev/null
+
+!URxvt*matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+
+!!! This one matches image URLs and open them in FEH
+URxvt*matcher.pattern.2:    \\bhttps?:\/\/[\\w-.]*\/[\\w./?&@#-]*.(jpg|jpeg|png)
+URxvt*matcher.launcher.2:    feh $0
+
+!!! Open youtubeliks in your own youtubescript
+URxvt*matcher.pattern.3:        \\bhttp:\/\/(www.youtube|youtube).com\/watch\\?v=([\\w-]*)
+URxvt*matcher.launcher.3:	/usr/bin/mplayer -zoom $(youtube-dl -bg "$2") 

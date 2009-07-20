@@ -114,7 +114,7 @@ export PROMPT='$PR_RED$chroot$PR_GREEN%m$PR_WHITE.$PR_BLUE%n$PR_WHITE $PR_MAGENT
 $PR_WHITE${vcs_info_msg_0_}:$PR_NO_COLOUR '
 
 case $TERM in
-    xterm*)
+    xterm*|rxvt*)
         precmd () {print -Pn "\e]0;$chroot%n@%m: %~\a"}
         ;;
 esac

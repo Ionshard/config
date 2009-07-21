@@ -14,7 +14,9 @@ theme_path = os.getenv("HOME") .. "/.config/awesome/theme.lua"
 
 -- Actually load theme
 beautiful.init(theme_path)
+require("obvious.lib.mpd")
 require("obvious.volume_alsa")
+require("obvious.basic_mpd")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -177,6 +179,7 @@ for s = 1, screen.count() do
     mywibox[s].widgets = { mylauncher,
                            mytaglist[s],
                            mytasklist[s],
+			   obvious.basic_mpd(),
                            mypromptbox[s],
 			   obvious.volume_alsa(),
                            mytextbox,
@@ -213,10 +216,38 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "w", function () mymainmenu:show(true)        end),
 
     -- Layout manipulation
-    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1) end),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1) end),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus( 1)       end),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus(-1)       end),
+-- Focus by direction (vi keys)
+    awful.key({ modkey }, "j", function ()
+	awful.client.focus.bydirection("down")
+	if client.focus then client.focus:raise() end
+    end),
+    awful.key({ modkey }, "k", function ()
+	awful.client.focus.bydirection("up")
+	if client.focus then client.focus:raise() end
+    end),
+    awful.key({ modkey }, "l", function ()
+	awful.client.focus.bydirection("right")
+	if client.focus then client.focus:raise() end
+    end),
+    awful.key({ modkey }, "h", function ()
+	awful.client.focus.bydirection("left");
+	if client.focus then client.focus:raise() end
+    end),
+
+    -- Swap by direction (vi keys)
+    awful.key({ modkey, "Shift" }, "j", function ()
+	awful.client.swap.bydirection("down")
+    end),
+    awful.key({ modkey, "Shift" }, "k", function ()
+	awful.client.swap.bydirection("up")
+    end),
+    awful.key({ modkey, "Shift" }, "l", function ()
+	awful.client.swap.bydirection("right")
+    end),
+    awful.key({ modkey, "Shift" }, "h", function ()
+	awful.client.swap.bydirection("left")
+    end),
+
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "Tab",
         function ()
@@ -249,7 +280,20 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
-              end)
+              end),
+
+    -- Plugins
+    awful.key({ modkey }, "p", obvious.lib.mpd.toggle_play),
+    awful.key({ modkey, "Shift" }, "=", function () obvious.lib.mpd.volume_up(5) end),
+    awful.key({ modkey }, "-", function () obvious.lib.mpd.volume_down(5) end),
+    awful.key({ modkey, "Shift" }, ",", function ()
+		    obvious.lib.mpd.previous()
+		    obvious.basic_mpd.update()
+	    end),
+    awful.key({ modkey, "Shift" }, ".", function ()
+		    obvious.lib.mpd.next()
+		    obvious.basic_mpd.update()
+	    end)
 )
 
 -- Client awful tagging: this is useful to tag some clients and then do stuff like move to tag on them
@@ -312,6 +356,7 @@ for i = 1, keynumber do
                       end
                    end))
 end
+
 
 -- Set keys
 root.keys(globalkeys)

@@ -75,7 +75,7 @@ setopt prompt_subst # allow param expansion, command subst, arith in prompt
 # misc
 unsetopt beep # never beep please
 setopt auto_cd # you can cd by just typing a folder name
-#setopt vi # vim mode
+setopt vi # vim mode
 
 #Aliases
 alias date='date +"~ %I:%M %p on %A, the %eth of %B ~"'
@@ -84,21 +84,32 @@ alias ll='ls -l --color=auto'
 alias la='ls -a --color=auto'
 alias althack='telnet nethack.alt.org'
 alias grep='grep --color=auto'
-#alias -g mgirc="garoth@irc.o09.us"
-#alias -g uwsol="aapachin@cpu10.student.cs.uwaterloo.ca"
-#alias -g uwlin="aapachin@mef-fe10.student.cs.uwaterloo.ca"
-#alias -g uwcsc="aapachin@csclub.uwaterloo.ca"
-#alias -g uwask="aapachin@acesulfame-potassium.csclub.uwaterloo.ca"
-#alias preparenote="cp $HOME/Studies/UsefulBits/underline.png ./ && echo Done"
-#alias crawl="crawl -dir \"$HOME/.crawl\""
-#alias -g plu="$HOME/Coding/C/plutocracy"
-#alias -g dra="$HOME/Coding/C/dragoon"
 alias pacman="sudo pacman-color"
 alias ftp="gftp-text"
 #alias tram="transmission-remote"
-#alias top="htop"
-#alias music="ncmpcpp"
+alias top="htop"
+alias music="ncmpcpp"
 alias fm="pcmanfm . &> ~/.logs/pcman.log &"
+
+# make special keys work as expected {{{
+bindkey "\e[1~" beginning-of-line
+bindkey "\e[2~" quoted-insert
+bindkey "\e[3~" delete-char
+bindkey "\e[4~" end-of-line
+bindkey "\e[5~" beginning-of-history
+bindkey "\e[6~" end-of-history
+bindkey "\e[7~" beginning-of-line
+bindkey "\e[8~" end-of-line
+bindkey "\e[H" beginning-of-line
+bindkey "\e[F" end-of-line
+bindkey "\eOH" beginning-of-line
+bindkey "\eOF" end-of-line
+bindkey "\eOd" backward-word
+bindkey "\eOc" forward-word
+bindkey "\e[A" history-search-backward
+bindkey "\e[B" history-search-forward
+#}}}
+
 
 # Variables
 HISTFILE=~/.histfile
@@ -113,6 +124,7 @@ fi
 export PROMPT='$PR_RED$chroot$PR_GREEN%m$PR_WHITE.$PR_BLUE%n$PR_WHITE $PR_MAGENTA%c\
 $PR_WHITE${vcs_info_msg_0_}:$PR_NO_COLOUR '
 
+#Change Title to [chroot]name@hostname pwd:
 case $TERM in
     xterm*|rxvt*)
         precmd () {print -Pn "\e]0;$chroot%n@%m: %~\a"}

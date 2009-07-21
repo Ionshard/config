@@ -74,11 +74,11 @@ URxvt*transparent: true
 URxvt*depth: 32
 URxvt*background: rgba:0000/0000/0000/cccc
 
-## geometry and font
+## look and feel
 #URxvt*geometry: 84×24
 URxvt*font: xft:terminus:pixelsize=14
-
 URxvt*iconFile: /usr/share/icons/Tango/22x22/apps/Terminal.png
+URxvt*urgentOnBell:    true
 !------------------------------------------------------------------------------
 ! URXVT PERL Scripts and URL Parsing
 URxvt*perl-ext:			default,matcher
@@ -100,4 +100,10 @@ URxvt*matcher.launcher.2:    feh $0
 
 !!! Open youtubeliks in your own youtubescript
 URxvt*matcher.pattern.3:        \\bhttp:\/\/(www.youtube|youtube).com\/watch\\?v=([\\w-]*)
-URxvt*matcher.launcher.3:	/usr/bin/mplayer -zoom $(youtube-dl -bg "$2") 
+URxvt*matcher.launcher.3:	/usr/local/bin/youtube-play
+
+!----------------------------
+! You Tube Play
+!
+!#!/bin/sh
+!/usr/bin/mplayer -zoom $(youtube-dl -bg "$2")

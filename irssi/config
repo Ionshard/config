@@ -200,7 +200,6 @@ statusbar = {
         window = { };
         window_empty = { };
         lag = { priority = "-1"; };
-        act = { priority = "10"; };
         more = { priority = "-1"; alignment = "right"; };
         barend = { priority = "100"; alignment = "right"; };
       };
@@ -250,6 +249,13 @@ statusbar = {
         topicbarend = { priority = "100"; alignment = "right"; };
       };
     };
+    awl_0 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
   };
 };
 settings = {
@@ -260,8 +266,51 @@ settings = {
   };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = {
-        beep_msg_level = "NOTICE MSGS HILIGHT";
-        bell_beeps = "no";
-    };
+    beep_msg_level = "NOTICE MSGS HILIGHT";
+    bell_beeps = "no";
+  };
 
+  "perl/core/scripts" = {
+    awl_display_key = "$Q%K|%n$H$C$S";
+    awl_block = "0";
+  };
+};
+hilights = ( { text = "kasuko"; nick = "yes"; word = "yes"; } );
+windows = {
+  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#plutocracy";
+        tag = "Freenode";
+      }
+    );
+  };
+  3 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#mercenariesguild";
+        tag = "Freenode";
+      }
+    );
+  };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#awesome";
+        tag = "OFTC";
+      }
+    );
+  };
+  5 = { name = "hilight"; sticky = "yes"; };
+};
+mainwindows = {
+  1 = { first_line = "8"; lines = "25"; };
+  5 = { first_line = "1"; lines = "7"; };
 };

@@ -102,8 +102,8 @@ URxvt*matcher.launcher.2:    feh $0
 URxvt*matcher.pattern.3:        \\bhttp:\/\/(www.youtube|youtube).com\/watch\\?v=([\\w-]*)
 URxvt*matcher.launcher.3:	/usr/local/bin/youtube-play
 
-!----------------------------
-! You Tube Play
-!
+!---------------!
+! You Tube Play !
+!---------------!
 !#!/bin/sh
 !/usr/bin/mplayer -zoom $(youtube-dl -bg "$2")

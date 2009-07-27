@@ -23,7 +23,7 @@ screen    -t '' 5
 screen    -t '' 6 
 screen    -t '' 7 top
 screen    -t '' 8 sudo inotail -f -n 30 /var/log/everything.log
-screen    -t '' 9
+screen    -t '' 9 awesome-client
 #select 9
 
 bind = resize =
@@ -89,8 +89,8 @@ bindkey -m "^[[6;2~" stuff ^d
 hardstatus on
 hardstatus alwayslastline
 #hardstatus string "%w"
-hardstatus string "%{.kW}%-w%{.W}%n %t%{-}%+w"
-#hardstatus string "%{.kW}%-w%{.W}%n %t%{-}%+w %=%c %d/%m/%Y" #black+white+bold
+#hardstatus string "%{.kW}%-w%{.W}%n %t%{-}%+w"
+hardstatus string "%{.kW}%-w%{.W}%n %t%{-}%+w %=%c %d/%m/%Y" #black+white+bold
 #hardstatus string "%{.kw}%-w%{.w}%n %t%{-}%+w %=%c %d/%m/%Y" #black+white+normal
 #hardstatus string "%{.kw}%-w%{.Kw}%n %t%{-}%+w %=%c %d/%m/%Y" #black+grey+normal
 #hardstatus string "%{.kc}%-w%{.kc}%n*%t%{-}%+w %=%c %d/%m/%Y" #black+cyan+normal

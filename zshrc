@@ -91,7 +91,7 @@ alias top="htop"
 alias music="ncmpcpp"
 alias fm="pcmanfm . &> ~/.logs/pcman.log &"
 
-# make special keys work as expected {{{
+# make special keys work as expected
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[2~" quoted-insert
 bindkey "\e[3~" delete-char
@@ -108,7 +108,7 @@ bindkey "\eOd" backward-word
 bindkey "\eOc" forward-word
 bindkey "\e[A" history-search-backward
 bindkey "\e[B" history-search-forward
-#}}}
+
 
 
 # Variables
@@ -148,6 +148,25 @@ cd()
 		/bin/ls --color=auto
         fi
 }
+
+rm()
+{
+	/bin/mv -f $@ ~/.trash/$(/bin/date +'%a%H%M')
+}
+
+shred()
+{
+	/bin/rm -fv $@
+}
+
+clean()
+{
+	if [ -d ~/.trash ]; then
+		/bin/rm -rf ~/.trash
+	fi
+	/bin/mkdir ~/.trash
+}
+
 
 # Devin's extract
 xtr () {

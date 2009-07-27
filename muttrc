@@ -1,0 +1,34 @@
+set mbox_type=Maildir
+set folder="~/mail"
+set mask="!^\\.[^.]"
+set mbox="~/mail"
+set record="+.Sent"
+set postponed="+.Drafts"
+set spoolfile="~/mail"
+set header = yes
+set reply_self = yes
+set visual = '/usr/bin/vim'
+set sort= reverse-date
+
+mailboxes `echo -n "+ "; find ~/mail -maxdepth 1 -type d -name ".*" -printf "+'%f' "`
+
+macro index c "<change-folder>?<toggle-mailboxes>" "open a different folder"
+macro pager c "<change-folder>?<toggle-mailboxes>" "open a different folder"
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+macro compose A "<attach-message>?<toggle-mailboxes>" "attach message(s) to this message"
+
+color attachment	brightmagenta	black
+color error		red		default
+color hdrdefault	brightred	default
+color indicator		brightyellow	blue
+color markers		brightcyan	default
+color message		brightcyan	default
+color normal		default		default
+color quoted		brightblue	default
+color search		default		green
+color signature		red		default
+color status		yellow		blue
+color tilde		magenta		default
+color tree		magenta		default
+

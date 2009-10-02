@@ -41,8 +41,9 @@ servers = (
     autoconnect = "yes";
   },
   {
-    address = "irc.nexuswar.com";
-    chatnet = "NexusWar";
+    address = "irc.allshells.net";
+    chatnet = "AllShells";
+    port = "6667";
     autoconnect = "yes";
   }
 );
@@ -86,30 +87,22 @@ chatnets = {
   Coldfront = { type = "IRC"; };
   OFTC = { type = "IRC"; };
   Bitlbee = { type = "IRC"; };
-  NexusWar = { type = "IRC"; };
+  AllShells = { type = "IRC"; };
 };
 
 channels = (
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
   { name = "silc"; chatnet = "silc"; autojoin = "No"; },
   { name = "#plutocracy"; chatnet = "Freenode"; autojoin = "Yes"; },
-  { name = "#awesome"; chatnet = "OFTC"; autojoin = "Yes"; },
   { 
     name = "#mercenariesguild";
     chatnet = "Freenode";
     autojoin = "Yes";
   },
-  { name = "#eve-online"; autojoin = "No"; },
-  { 
-    name = "#seppuku-warriors";
-    chatnet = "Coldfront";
-    autojoin = "No";
-  },
-  { name = "#nexus"; chatnet = "NexusWar"; autojoin = "Yes"; },
-  { name = "#acta"; chatnet = "NexusWar"; autojoin = "Yes"; },
-  { name = "#DivineSlayers"; chatnet = "NexusWar"; autojoin = "Yes"; },
-  { name = "#Freemasons"; chatnet = "NexusWar"; autojoin = "Yes"; },
-  { name = "#AoSG"; chatnet = "NexusWar"; autojoin = "Yes"; }
+  { name = "#awesome"; chatnet = "OFTC"; autojoin = "Yes"; },
+  { name = "#archlinux"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "#eve-online"; chatnet = "Coldfront"; autojoin = "Yes"; },
+  { name = "#blinkenshell"; chatnet = "AllShells"; autojoin = "Yes"; }
 );
 
 aliases = {
@@ -299,68 +292,15 @@ settings = {
 hilights = ( { text = "kasuko"; nick = "yes"; word = "yes"; } );
 logs = { };
 windows = {
-  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
-  2 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "&bitlbee";
-        tag = "Bitlbee";
-      }
-    );
+  1 = {
+    immortal = "yes";
+    name = "(status)";
+    level = "ALL";
+    sticky = "yes";
+    parent = "7";
   };
+  2 = { };
   3 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#nexus";
-        tag = "NexusWar";
-      }
-    );
-  };
-  4 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#acta";
-        tag = "NexusWar";
-      }
-    );
-  };
-  5 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#DivineSlayers";
-        tag = "NexusWar";
-      }
-    );
-  };
-  6 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#Freemasons";
-        tag = "NexusWar";
-      }
-    );
-  };
-  7 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#AoSG";
-        tag = "NexusWar";
-      }
-    );
-  };
-  8 = {
     items = (
       {
         type = "CHANNEL";
@@ -369,8 +309,10 @@ windows = {
         tag = "Freenode";
       }
     );
+    sticky = "yes";
+    parent = "7";
   };
-  9 = {
+  4 = {
     items = (
       {
         type = "CHANNEL";
@@ -379,9 +321,10 @@ windows = {
         tag = "Freenode";
       }
     );
+    sticky = "yes";
+    parent = "7";
   };
-  10 = { name = "hilight"; sticky = "yes"; };
-  11 = {
+  5 = {
     items = (
       {
         type = "CHANNEL";
@@ -390,9 +333,47 @@ windows = {
         tag = "OFTC";
       }
     );
+    sticky = "yes";
+    parent = "7";
   };
+  6 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#archlinux";
+        tag = "Freenode";
+      }
+    );
+    sticky = "yes";
+    parent = "7";
+  };
+  7 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#blinkenshell";
+        tag = "AllShells";
+      }
+    );
+    sticky = "yes";
+  };
+  8 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#eve-online";
+        tag = "Coldfront";
+      }
+    );
+    sticky = "yes";
+    parent = "7";
+  };
+  9 = { name = "hilight"; sticky = "yes"; };
 };
 mainwindows = {
-  1 = { first_line = "8"; lines = "61"; };
-  10 = { first_line = "1"; lines = "7"; };
+  7 = { first_line = "8"; lines = "60"; };
+  9 = { first_line = "1"; lines = "7"; };
 };

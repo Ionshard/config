@@ -1,4 +1,10 @@
 servers = (
+  {
+    address = "localhost";
+    chatnet = "Bitlbee";
+    port = "6667";
+    autoconnect = "yes";
+  },
   { address = "irc.ubuntu.com"; chatnet = "Ubuntu"; port = "8001"; },
   { address = "irc.stealth.net"; chatnet = "IRCnet"; port = "6668"; },
   { address = "irc.efnet.org"; chatnet = "EFNet"; port = "6667"; },
@@ -31,6 +37,12 @@ servers = (
   {
     address = "irc.oftc.net";
     chatnet = "OFTC";
+    port = "6667";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.allshells.net";
+    chatnet = "AllShells";
     port = "6667";
     autoconnect = "yes";
   }
@@ -74,6 +86,8 @@ chatnets = {
 
   Coldfront = { type = "IRC"; };
   OFTC = { type = "IRC"; };
+  Bitlbee = { type = "IRC"; };
+  AllShells = { type = "IRC"; };
 };
 
 channels = (
@@ -81,16 +95,14 @@ channels = (
   { name = "silc"; chatnet = "silc"; autojoin = "No"; },
   { name = "#plutocracy"; chatnet = "Freenode"; autojoin = "Yes"; },
   { 
-    name = "#seppuku-warriors";
-    chatnet = "Coldfront";
-    autojoin = "No";
-  },
-  { name = "#awesome"; chatnet = "OFTC"; autojoin = "Yes"; },
-  { 
     name = "#mercenariesguild";
     chatnet = "Freenode";
     autojoin = "Yes";
-  }
+  },
+  { name = "#awesome"; chatnet = "OFTC"; autojoin = "Yes"; },
+  { name = "#archlinux"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "#eve-online"; chatnet = "Coldfront"; autojoin = "Yes"; },
+  { name = "#blinkenshell"; chatnet = "AllShells"; autojoin = "Yes"; }
 );
 
 aliases = {
@@ -200,7 +212,6 @@ statusbar = {
         window = { };
         window_empty = { };
         lag = { priority = "-1"; };
-        act = { priority = "10"; };
         more = { priority = "-1"; alignment = "right"; };
         barend = { priority = "100"; alignment = "right"; };
       };
@@ -271,4 +282,98 @@ settings = {
     bell_beeps = "no";
   };
 
+  "perl/core/scripts" = {
+    awl_display_key = "$Q%K|%n$H$C$S";
+    awl_block = "0";
+    screen_away_active = "yes";
+    screen_away_message = "Detached Screen";
+  };
+};
+hilights = ( { text = "kasuko"; nick = "yes"; word = "yes"; } );
+logs = { };
+windows = {
+  1 = {
+    immortal = "yes";
+    name = "(status)";
+    level = "ALL";
+    sticky = "yes";
+    parent = "7";
+  };
+  2 = { };
+  3 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#plutocracy";
+        tag = "Freenode";
+      }
+    );
+    sticky = "yes";
+    parent = "7";
+  };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#mercenariesguild";
+        tag = "Freenode";
+      }
+    );
+    sticky = "yes";
+    parent = "7";
+  };
+  5 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#awesome";
+        tag = "OFTC";
+      }
+    );
+    sticky = "yes";
+    parent = "7";
+  };
+  6 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#archlinux";
+        tag = "Freenode";
+      }
+    );
+    sticky = "yes";
+    parent = "7";
+  };
+  7 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#blinkenshell";
+        tag = "AllShells";
+      }
+    );
+    sticky = "yes";
+  };
+  8 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#eve-online";
+        tag = "Coldfront";
+      }
+    );
+    sticky = "yes";
+    parent = "7";
+  };
+  9 = { name = "hilight"; sticky = "yes"; };
+};
+mainwindows = {
+  7 = { first_line = "8"; lines = "60"; };
+  9 = { first_line = "1"; lines = "7"; };
 };

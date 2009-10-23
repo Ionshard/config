@@ -250,6 +250,13 @@ statusbar = {
         topicbarend = { priority = "100"; alignment = "right"; };
       };
     };
+    awl_0 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
   };
 };
 settings = {
@@ -260,8 +267,8 @@ settings = {
   };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = {
-        beep_msg_level = "NOTICE MSGS HILIGHT";
-        bell_beeps = "no";
-    };
+    beep_msg_level = "NOTICE MSGS HILIGHT";
+    bell_beeps = "no";
+  };
 
 };

@@ -1,8 +1,8 @@
 #Path
-export PATH=${PATH}:/home/kasuko/bin:/home/kasuko/Android/android-sdk-linux_x86-1.5_r1/tools
+export PATH=${PATH}:/home/kasuko/bin
 
 #Toolchains
-export PATH=${PATH}:/home/kasuko/Programs/CodeSourcery/bin:/home/kasuko/code/Android/source/prebuilt/linux-x86/toolchain/arm-eabi-4.3.1/bin:/home/kasuko/Programs/gnuarm-4.0.2/bin:/home/kasuko/Programs/arm-crosstool/gcc-4.1.0-glibc-2.3.2/arm-unknown-linux-gnu/bin
+#export PATH=${PATH}:/home/kasuko/Programs/CodeSourcery/bin:/home/kasuko/code/Android/source/prebuilt/linux-x86/toolchain/arm-eabi-4.3.1/bin:/home/kasuko/Programs/gnuarm-4.0.2/bin:/home/kasuko/Programs/arm-crosstool/gcc-4.1.0-glibc-2.3.2/arm-unknown-linux-gnu/bin
 
 # Completion
 autoload -Uz compinit
@@ -113,8 +113,8 @@ bindkey "\e[B" history-search-forward
 
 # Variables
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 export EDITOR=/usr/bin/vim
 
 # set variable identifying the chroot you work in (used in the prompt below)
@@ -148,25 +148,6 @@ cd()
 		/bin/ls --color=auto
         fi
 }
-
-rm()
-{
-	/bin/mv -f $@ ~/.trash/$(/bin/date +'%a%H%M')
-}
-
-shred()
-{
-	/bin/rm -fv $@
-}
-
-clean()
-{
-	if [ -d ~/.trash ]; then
-		/bin/rm -rf ~/.trash
-	fi
-	/bin/mkdir ~/.trash
-}
-
 
 # Devin's extract
 xtr () {

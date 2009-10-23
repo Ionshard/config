@@ -1,5 +1,8 @@
 [color]
 	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
 [user]
 	name = Corey Ling
 	email = kasuko@gmail.com

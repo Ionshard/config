@@ -74,6 +74,9 @@ URxvt*transparent: true
 URxvt*depth: 32
 URxvt*background: rgba:0000/0000/0000/cccc
 
+## Allow doubleclicking on URLs
+xvt*cutchars: `"()'*<>[]{|}
+
 ## look and feel
 #URxvt*geometry: 84×24
 URxvt*font: xft:terminus:pixelsize=14

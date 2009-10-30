@@ -12,10 +12,14 @@ compinit
 
 # VCS
 autoload -Uz vcs_info
-zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
-zstyle ':vcs_info:*' actionformats '.%F{2}%b%F{3}.%F{1}%a%f'
-zstyle ':vcs_info:*' formats '.%F{2}%b%%f'
-zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:*' enable git svn bzr
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '¹'
+zstyle ':vcs_info:*' stagedstr '²'
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b:%r'
+zstyle ':vcs_info:*' actionformats '(%b%u%c|%a) '
+zstyle ':vcs_info:*' formats '(%b%u%c) '
+zstyle ':vcs_info:*' nvcsformats ""
 
 # Auto Mime Type Running
 autoload -Uz zsh-mime-setup
@@ -109,31 +113,40 @@ bindkey "\eOc" forward-word
 bindkey "\e[A" history-search-backward
 bindkey "\e[B" history-search-forward
 
-
-
 # Variables
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
-export EDITOR=/usr/bin/vim
+EDITOR=/usr/bin/vim
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     local chroot="[$(cat /etc/debian_chroot)]"
 fi
-export PROMPT='$PR_RED$chroot$PR_GREEN%m$PR_WHITE.$PR_BLUE%n$PR_WHITE $PR_MAGENTA%c\
-$PR_WHITE${vcs_info_msg_0_}:$PR_NO_COLOUR '
 
-#Change Title to [chroot]name@hostname pwd:
-case $TERM in
-    xterm*|rxvt*)
-        precmd () {print -Pn "\e]0;$chroot%n@%m: %~\a"}
-        ;;
-esac
+local git='$vcs_info_msg_0_'
+
+PROMPT='$PR_RED$chroot$PR_GREEN%m$PR_WHITE.$PR_BLUE%n$PR_WHITE '
+PROMPT+='$PR_YELLOW$vcs_info_msg_0_'
+PROMPT+='$PR_MAGENTA%c$PR_WHITE:$PR_NO_COLOUR '
+
+RPROMPT='%(?..%?)'
 
 
 # Modified cd/ls functions
 TODO_OPTIONS="--summary"
+
+function precmd() {
+	#Change Title to [chroot](branch)name@hostname pwd:
+	case $TERM in
+	    xterm*|rxvt*)
+		print -Pn "\e]0;$chroot $git %n@%m: %~\a"
+	        ;;
+	esac
+
+	psvar=()
+	vcs_info
+}
 
 ls()
 {

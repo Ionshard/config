@@ -1,4 +1,4 @@
-#Path
+#Pat
 export PATH=${PATH}:/home/kasuko/bin
 
 #Toolchains
@@ -94,6 +94,10 @@ alias ftp="gftp-text"
 alias top="htop"
 alias music="ncmpcpp"
 alias fm="pcmanfm . &> ~/.logs/pcman.log &"
+#Ubuntu
+alias install="sudo aptitude install"
+alias search="aptitude search"
+alias info="aptitude show"
 
 # make special keys work as expected
 bindkey "\e[1~" beginning-of-line
@@ -118,6 +122,7 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 EDITOR=/usr/bin/vim
+VISUAL=/usr/bin/vim
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then

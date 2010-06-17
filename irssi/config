@@ -41,8 +41,8 @@ servers = (
     autoconnect = "yes";
   },
   {
-    address = "irc.allshells.net";
-    chatnet = "AllShells";
+    address = "mimas.blinkenshell.org";
+    chatnet = "Blinkenshell";
     port = "6667";
     autoconnect = "yes";
   }
@@ -87,7 +87,7 @@ chatnets = {
   Coldfront = { type = "IRC"; };
   OFTC = { type = "IRC"; };
   Bitlbee = { type = "IRC"; };
-  AllShells = { type = "IRC"; };
+  Blinkenshell = { type = "IRC"; };
 };
 
 channels = (
@@ -102,7 +102,11 @@ channels = (
   { name = "#awesome"; chatnet = "OFTC"; autojoin = "Yes"; },
   { name = "#archlinux"; chatnet = "Freenode"; autojoin = "Yes"; },
   { name = "#eve-online"; chatnet = "Coldfront"; autojoin = "Yes"; },
-  { name = "#blinkenshell"; chatnet = "AllShells"; autojoin = "Yes"; }
+  { 
+    name = "#blinkenshell";
+    chatnet = "Blinkenshell";
+    autojoin = "Yes";
+  }
 );
 
 aliases = {

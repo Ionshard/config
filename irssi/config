@@ -1,8 +1,8 @@
 servers = (
   {
-    address = "localhost";
+    address = "192.168.1.12";
     chatnet = "Bitlbee";
-    port = "6667";
+    port = "7001";
     autoconnect = "yes";
   },
   { address = "irc.ubuntu.com"; chatnet = "Ubuntu"; port = "8001"; },
@@ -106,7 +106,8 @@ channels = (
     name = "#blinkenshell";
     chatnet = "Blinkenshell";
     autojoin = "Yes";
-  }
+  },
+  { name = "#pyxis"; chatnet = "OFTC"; autojoin = "Yes"; }
 );
 
 aliases = {

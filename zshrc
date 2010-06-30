@@ -11,15 +11,15 @@ zstyle :compinstall filename "$HOME/.zshrc"
 compinit
 
 # VCS
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn bzr
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' unstagedstr '¹'
-zstyle ':vcs_info:*' stagedstr '²'
-zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b:%r'
-zstyle ':vcs_info:*' actionformats '(%b%u%c|%a) '
-zstyle ':vcs_info:*' formats '(%b%u%c) '
-zstyle ':vcs_info:*' nvcsformats ""
+#autoload -Uz vcs_info
+#zstyle ':vcs_info:*' enable git svn bzr
+#zstyle ':vcs_info:*' check-for-changes true
+#zstyle ':vcs_info:*' unstagedstr '¹'
+#zstyle ':vcs_info:*' stagedstr '²'
+#zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b:%r'
+#zstyle ':vcs_info:*' actionformats '(%b%u%c|%a) '
+#zstyle ':vcs_info:*' formats '(%b%u%c) '
+#zstyle ':vcs_info:*' nvcsformats ""
 
 # Auto Mime Type Running
 autoload -Uz zsh-mime-setup
@@ -129,10 +129,10 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     local chroot="[$(cat /etc/debian_chroot)]"
 fi
 
-local git='$vcs_info_msg_0_'
+#local git='$vcs_info_msg_0_'
 
 PROMPT='$PR_RED$chroot$PR_GREEN%m$PR_WHITE.$PR_BLUE%n$PR_WHITE '
-PROMPT+='$PR_YELLOW$vcs_info_msg_0_'
+#PROMPT+='$PR_YELLOW$vcs_info_msg_0_'
 PROMPT+='$PR_MAGENTA%c$PR_WHITE:$PR_NO_COLOUR '
 
 RPROMPT='%(?..%?)'
@@ -150,7 +150,7 @@ function precmd() {
 	esac
 
 	psvar=()
-	vcs_info
+	#vcs_info
 }
 
 ls()

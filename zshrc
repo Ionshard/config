@@ -1,5 +1,5 @@
 #Pat
-export PATH=${PATH}:/home/kasuko/bin
+export PATH=${PATH}:$HOME/bin
 
 #Toolchains
 #export PATH=${PATH}:/home/kasuko/Programs/CodeSourcery/bin:/home/kasuko/code/Android/source/prebuilt/linux-x86/toolchain/arm-eabi-4.3.1/bin:/home/kasuko/Programs/gnuarm-4.0.2/bin:/home/kasuko/Programs/arm-crosstool/gcc-4.1.0-glibc-2.3.2/arm-unknown-linux-gnu/bin

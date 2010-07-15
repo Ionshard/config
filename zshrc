@@ -90,6 +90,7 @@ alias althack='telnet nethack.alt.org'
 alias grep='grep --color=auto'
 alias pacman="sudo pacman-color"
 alias ftp="gftp-text"
+alias agent=". ~/.agent"
 #alias tram="transmission-remote"
 alias top="htop"
 alias music="ncmpcpp"
@@ -215,4 +216,7 @@ xtr () {
 #Execute these as a terminal opens
 date
 devtodo ${TODO_OPTIONS}
+
+#ssh-agent registration
+[ -e '~/.agent' ] || agent > /dev/null
 

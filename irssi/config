@@ -3,7 +3,7 @@ servers = (
     address = "192.168.1.12";
     chatnet = "Bitlbee";
     port = "7001";
-    autoconnect = "yes";
+    autoconnect = "no";
   },
   { address = "irc.ubuntu.com"; chatnet = "Ubuntu"; port = "8001"; },
   { address = "irc.stealth.net"; chatnet = "IRCnet"; port = "6668"; },
@@ -41,9 +41,17 @@ servers = (
     autoconnect = "yes";
   },
   {
-    address = "mimas.blinkenshell.org";
+    address = "irc.blinkenshell.org";
     chatnet = "Blinkenshell";
-    port = "6667";
+    use_ssl = "yes";
+    port = "6697";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.omgwtfhax.net";
+    chatnet = "OmgWtfHax";
+    use_ssl = "yes";
+    port = "6697";
     autoconnect = "yes";
   }
 );
@@ -83,6 +91,7 @@ chatnets = {
   SILC = { type = "SILC"; };
   Ubuntu = { type = "IRC"; };
   Freenode = { type = "IRC"; };
+  OmgWtfHax = { type = "IRC"; };
 
   Coldfront = { type = "IRC"; };
   OFTC = { type = "IRC"; };
@@ -97,10 +106,10 @@ channels = (
   { 
     name = "#mercenariesguild";
     chatnet = "Freenode";
-    autojoin = "Yes";
+    autojoin = "No";
   },
-  { name = "#awesome"; chatnet = "OFTC"; autojoin = "Yes"; },
-  { name = "#archlinux"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "#awesome"; chatnet = "OFTC"; autojoin = "No"; },
+  { name = "#archlinux"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#eve-online"; chatnet = "Coldfront"; autojoin = "Yes"; },
   { 
     name = "#blinkenshell";
@@ -309,9 +318,10 @@ windows = {
     name = "(status)";
     level = "ALL";
     sticky = "yes";
-    parent = "3";
+    parent = "5";
   };
-  2 = {
+  2 = { name = "hilight"; sticky = "yes"; };
+  3 = {
     items = (
       {
         type = "CHANNEL";
@@ -321,9 +331,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "5";
   };
-  3 = {
+  4 = {
     items = (
       {
         type = "CHANNEL";
@@ -333,68 +343,20 @@ windows = {
       }
     );
     sticky = "yes";
-  };
-  4 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#django-eve";
-        tag = "Coldfront";
-      }
-    );
-    sticky = "yes";
-    parent = "3";
+    parent = "5";
   };
   5 = {
     items = (
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#plutocracy";
-        tag = "Freenode";
+        name = "#BTN";
+        tag = "OmgWtfHax";
       }
     );
     sticky = "yes";
-    parent = "3";
   };
   6 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#mercenariesguild";
-        tag = "Freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "3";
-  };
-  7 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#awesome";
-        tag = "OFTC";
-      }
-    );
-    sticky = "yes";
-    parent = "3";
-  };
-  8 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#archlinux";
-        tag = "Freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "3";
-  };
-  9 = {
     items = (
       {
         type = "CHANNEL";
@@ -404,11 +366,22 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "5";
   };
-  10 = { name = "hilight"; sticky = "yes"; };
+  7 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#plutocracy";
+        tag = "OFTC";
+      }
+    );
+    sticky = "yes";
+    parent = "5";
+  };
 };
 mainwindows = {
-  3 = { first_line = "4"; lines = "17"; };
-  10 = { first_line = "1"; lines = "3"; };
+  5 = { first_line = "4"; lines = "16"; };
+  2 = { first_line = "1"; lines = "3"; };
 };

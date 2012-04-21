@@ -42,7 +42,7 @@ alias -s pdf="epdfview"
 #Colors
 autoload -Uz colors
 autoload -Uz zsh/terminfo
-eval "$(dircolors -b)"
+eval "$(dircolors -b $HOME/.config/LS_COLORS/LS_COLORS)"
 if [[ "$terminfo[colors]" -ge 8 ]]; then
     colors
 fi

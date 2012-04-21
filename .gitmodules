@@ -16,3 +16,6 @@
 [submodule "vim/bundle/minibufexpl.vim"]
 	path = vim/bundle/minibufexpl.vim
 	url = https://github.com/fholgado/minibufexpl.vim.git
+[submodule "LS_COLORS"]
+	path = LS_COLORS
+	url = https://github.com/trapd00r/LS_COLORS.git

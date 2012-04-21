@@ -84,6 +84,7 @@ nnoremap <leader>t :tabe %:h<CR>
 nnoremap <leader>T :tabnew<CR>:Ex . <CR>
 
 "Pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 " Sudo to write

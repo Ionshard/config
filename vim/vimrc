@@ -85,3 +85,8 @@ nnoremap <leader>T :tabnew<CR>:Ex . <CR>
 
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
+
+" Source a local configuration file if available.
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif

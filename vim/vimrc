@@ -83,6 +83,9 @@ nnoremap <C-l> <C-w>l
 nnoremap <leader>t :tabe %:h<CR>
 nnoremap <leader>T :tabnew<CR>:Ex . <CR>
 
+"Pathogen
+call pathogen#infect()
+
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
 

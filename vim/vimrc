@@ -79,13 +79,16 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Tabs
-nnoremap <leader>t :tabe %:h<CR>
-nnoremap <leader>T :tabnew<CR>:Ex . <CR>
+"Open Explorer
+nnoremap <leader>e :Ex . <CR>
 
 "Pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
+
+"MiniBufferExplorer
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
 
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null

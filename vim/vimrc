@@ -90,6 +90,9 @@ call pathogen#infect()
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
+"TabList
+nnoremap <leader>t :TlistToggle<CR>
+
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
 

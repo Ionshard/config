@@ -69,9 +69,6 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-" Auto save
-au FocusLost * :wa
-
 " Splitting
 nnoremap <leader>w <C-w>v<C-w>l:Ex %:h<CR>
 nnoremap <C-h> <C-w>h
